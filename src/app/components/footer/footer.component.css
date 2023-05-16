@@ -1,0 +1,41 @@
+/* Footer */
+
+footer {
+    background: linear-gradient(to bottom, #FDFCDC, #FED9B7);
+    color: black;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: #F07167;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+footer .bi {
+    font-size: 1.5rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media screen and (max-width:575px) {
+    .footer-row {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+    }
+}

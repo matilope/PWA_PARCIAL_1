@@ -1,0 +1,46 @@
+<nav class="nav">
+    <a href="/"><img src="assets/images/logo/logo.png" alt="Logo del sitio" /></a>
+    <h1>Clima</h1>
+</nav>
+
+<div class="banner py-5">
+    <div class="searcher my-5">
+        <form (ngSubmit)="search();" [formGroup]="formSearch">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="buscador"><i class="bi bi-search"></i></span>
+                </div>
+                <input formControlName="search" type="search" class="form-control form-control-lg"
+                    placeholder="El tiempo en..." aria-label="buscador" aria-describedby="buscador" #inputValue>
+            </div>
+        </form>
+        <div *ngIf="alertNotification" class="alert alert-danger mb-0" role="alert">No se ha encontrado lo solicitado</div>
+    </div>
+
+    <ng-container *ngIf="local else presentation">
+        <h2 class="recents">Busquedas recientes...</h2>
+        <div id="searches">
+            <i class="bi bi-arrow-left-circle-fill" [ngStyle]="{'visibility': startIndex > 0 ? 'visible' : 'hidden'}"
+                (click)="previous();"></i>
+            <div class="history-unique" [ngClass]="{'animation': animation}"
+                *ngFor="let item of local.slice(startIndex, endIndex);">
+                <h3>{{item.name}}</h3>
+                <div class="history-img-temp">
+                    <img [src]="'https://openweathermap.org/img/wn/'+item.weather[0].icon+'@2x.png'"
+                        [alt]="'Clima de ' + item.name" />
+                    <span>{{item.main.temp | fixed}}°C</span>
+                </div>
+                <span>Térmica {{item.main.feels_like | fixed}}°C</span>
+            </div>
+            <i class="bi bi-arrow-right-circle-fill"
+                [ngStyle]="{'visibility': endIndex < local.length ? 'visible' : 'hidden'}" (click)="next();"></i>
+        </div>
+    </ng-container>
+
+    <ng-template #presentation>
+        <div class="m-3">
+            <h2 class="mb-3">Bienvenidos a nuestra web del clima</h2>
+            <p class="lead">No se han encontrado búsquedas recientes</p>
+        </div>
+    </ng-template>
+</div>
