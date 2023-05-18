@@ -10,3 +10,6 @@
 ## Ejecutar la app
 - npm install
 - ng s --o (o ng serve --open)
+
+## En caso de que no sea posible lo anterior
+- [Proyecto hecho en JS VANILLA](https://github.com/matilope/PWA_PARCIAL_1_JS_VANILLA)
