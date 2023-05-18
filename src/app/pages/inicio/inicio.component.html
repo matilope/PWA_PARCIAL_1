@@ -11,10 +11,14 @@
                             {{data.main.temp_max | fixed}}°C</span>
                     </div>
                 </div>
-                <div class="extra-info"><span>Sensación térmica {{data.main.feels_like | fixed}}°C</span>
-                    <hr><span>Humedad {{data.main.humidity}}%</span>
-                    <hr><span>Presión atmosférica {{data.main.pressure}} hPa</span>
-                    <hr><span>Vientos {{(data.wind.speed * 1.609344) | fixed}} km/h</span>
+                <div class="extra-info">
+                    <span>Sensación térmica {{data.main.feels_like | fixed}}°C</span>
+                    <hr />
+                    <span>Humedad {{data.main.humidity}}%</span>
+                    <hr />
+                    <span>Presión atmosférica {{data.main.pressure}} hPa</span>
+                    <hr />
+                    <span>Vientos {{(data.wind.speed * 3.6) | fixed}} km/h</span>
                 </div>
             </div>
         </div>
