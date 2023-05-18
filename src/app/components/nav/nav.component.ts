@@ -31,7 +31,6 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(process.env['APIKEYWEATHER']);
     this.setIndexes();
     this.formSearch = new FormGroup({
       search: new FormControl('', [
